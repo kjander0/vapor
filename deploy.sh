@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WWW_SRC="$SCRIPT_DIR/www"
 NGINX_SRC="$SCRIPT_DIR/nginx/vaporwave.conf"
 
-WWW_DEST="/var/www/vapor"
+WWW_DEST="/opt/vapor"
 NGINX_DEST="/etc/nginx/conf.d/vaporwave.conf"
 
 if [[ ! -d "$WWW_SRC" ]]; then
@@ -24,6 +24,10 @@ sudo mkdir -p "$WWW_DEST"
 
 echo "Copying web files"
 sudo cp -R "$WWW_SRC"/. "$WWW_DEST"/
+
+echo "Setting file permissions"
+sudo find "$WWW_DEST" -type d -exec chmod 755 {} \;
+sudo find "$WWW_DEST" -type f -exec chmod 644 {} \;
 
 echo "Installing nginx config"
 sudo mkdir -p "$(dirname "$NGINX_DEST")"
