@@ -83,5 +83,10 @@ Longer term, the ideal workflow is an in-game editor:
 
 - Static files live in `www/`
 - Nginx config lives in `nginx/vaporwave.conf`
-- `deploy.sh` copies the site to `/var/www/vapor`, installs the Nginx config, tests it, and reloads Nginx
+- `deploy.sh` copies the site to `/opt/vapor`, installs the Nginx config, tests it, and reloads Nginx
 - Site is served at `http://74.208.35.96/vapor/`
+
+## Local Dev
+
+- Run `go run .`
+- Open `http://127.0.0.1:8080`

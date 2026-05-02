@@ -3,10 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vaporwave Jam Game</title>
+    <title>Vapor Surf</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Hello world</h1>
-    <p>Vaporwave jam deploy is working.</p>
+<body class="play-page">
+    <main class="portal" aria-labelledby="game-title">
+        <header class="site-header">
+            <div class="brand-chip">Vapor Surf</div>
+            <div class="updated">Updated: May 1999</div>
+        </header>
+
+        <section class="hero-panel">
+            <h1 id="game-title">VAPOR SURF</h1>
+            <p class="tagline">Low poly time trials for the information superhighway.</p>
+        </section>
+
+        <form class="play-form" id="play-form">
+            <label for="player-name">Choose your screen name</label>
+            <div class="name-row">
+                <input id="player-name" name="playerName" type="text" maxlength="20" autocomplete="nickname" placeholder="surfer99" required>
+                <button type="submit">Play</button>
+            </div>
+        </form>
+
+        <footer class="footer-strip">
+            Best viewed in a browser with frames, tables, and unreasonable optimism.
+        </footer>
+    </main>
+
+    <script src="play.js"></script>
 </body>
 </html>

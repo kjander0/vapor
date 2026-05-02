@@ -1,0 +1,207 @@
+:root {
+    color-scheme: light;
+    --page-bg: #101842;
+    --panel-bg: #ffffee;
+    --panel-shadow: #1d1d1d;
+    --blue: #1b4ca3;
+    --link-blue: #0000cc;
+    --red: #cc0033;
+    --gold: #ffcc33;
+    --green: #1f7a45;
+    --ink: #111111;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    color: var(--ink);
+    font-family: Verdana, Geneva, Arial, sans-serif;
+}
+
+.play-page {
+    min-height: 100%;
+    padding: 18px;
+    overflow: auto;
+    background-color: var(--page-bg);
+    background-image:
+        linear-gradient(45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.08) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.08) 75%);
+    background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+    background-size: 24px 24px;
+}
+
+.portal {
+    width: min(760px, 100%);
+    margin: 24px auto;
+    border: 3px solid #000000;
+    background: var(--panel-bg);
+    box-shadow: 8px 8px 0 var(--panel-shadow);
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 9px;
+    border-bottom: 3px solid #000000;
+    color: #ffffff;
+    background: linear-gradient(90deg, var(--blue), #6699cc);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.brand-chip {
+    padding: 2px 7px;
+    border: 2px outset #ffffff;
+    background: #eeeeee;
+    color: var(--blue);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+.updated {
+    white-space: nowrap;
+}
+
+.hero-panel {
+    padding: 28px 22px 18px;
+    border-bottom: 1px solid #999999;
+    background:
+        repeating-linear-gradient(0deg, rgba(255, 204, 51, 0.26) 0 3px, transparent 3px 7px),
+        linear-gradient(135deg, #ffffff 0%, #cfe0ff 45%, #fff4b8 100%);
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: var(--red);
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(46px, 11vw, 92px);
+    line-height: 0.94;
+    text-shadow: 3px 3px 0 #ffffff, 5px 5px 0 #000000;
+}
+
+.tagline {
+    margin: 16px auto 0;
+    max-width: 520px;
+    color: #222222;
+    font: bold 15px Georgia, "Times New Roman", serif;
+}
+
+.play-form {
+    display: grid;
+    gap: 8px;
+    padding: 20px 22px 22px;
+    border-top: 3px ridge #ffffff;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 204, 0.09), transparent 42%),
+        var(--panel-bg);
+}
+
+label {
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.name-row {
+    display: flex;
+    gap: 8px;
+}
+
+input,
+button {
+    min-height: 42px;
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    padding: 7px 9px;
+    border: 2px inset #d8d8d8;
+    background: #ffffff;
+    color: #000000;
+}
+
+button {
+    min-width: 104px;
+    padding: 0 18px;
+    border: 3px outset #eeeeee;
+    background: #dddddd;
+    color: #000000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:active {
+    border-style: inset;
+}
+
+button:focus-visible,
+input:focus {
+    outline: 2px solid var(--link-blue);
+    outline-offset: 2px;
+}
+
+.footer-strip {
+    padding: 9px 12px;
+    border-top: 3px solid #000000;
+    background: #eeeeee;
+    color: #333333;
+    font-size: 12px;
+    text-align: center;
+}
+
+.game-page {
+    overflow: hidden;
+    background: #000000;
+}
+
+#game-canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+@media (max-width: 560px) {
+    .play-page {
+        padding: 10px;
+    }
+
+    .portal {
+        margin: 10px auto;
+        box-shadow: 5px 5px 0 var(--panel-shadow);
+    }
+
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .updated {
+        white-space: normal;
+    }
+
+    .name-row {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
