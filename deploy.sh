@@ -7,8 +7,7 @@ WWW_SRC="$SCRIPT_DIR/www"
 NGINX_SRC="$SCRIPT_DIR/nginx/vaporwave.conf"
 
 WWW_DEST="/var/www/vapor"
-NGINX_DEST="/etc/nginx/sites-available/vaporwave"
-NGINX_ENABLED="/etc/nginx/sites-enabled/vaporwave"
+NGINX_DEST="/etc/nginx/conf.d/vaporwave.conf"
 
 if [[ ! -d "$WWW_SRC" ]]; then
     echo "Missing web source directory: $WWW_SRC" >&2
@@ -27,12 +26,8 @@ echo "Copying web files"
 sudo cp -R "$WWW_SRC"/. "$WWW_DEST"/
 
 echo "Installing nginx config"
+sudo mkdir -p "$(dirname "$NGINX_DEST")"
 sudo cp "$NGINX_SRC" "$NGINX_DEST"
-
-if [[ ! -L "$NGINX_ENABLED" ]]; then
-    echo "Enabling nginx site"
-    sudo ln -s "$NGINX_DEST" "$NGINX_ENABLED"
-fi
 
 echo "Testing nginx config"
 sudo nginx -t
